@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&family=Rubik:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+
+.contenedor {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Hacemos que el contenedor ocupe todo el viewport en altura */
+    overflow: hidden; /* Esto es para evitar desbordamientos indeseados */
+}
+
+.navigation {
+    margin: 10px 0;
+    position: absolute; /* Esto hará que el nav quede por encima del swiper */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Asegura que esté por encima del swiper */
+    display: flex;
+    justify-content: space-between;
+}
+
+.swiper-container {
+    width: 100vw; 
+    height: 100vh; 
+}
+
+.swiper-slide {
+    position: relative;
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.swiper-slide img {
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; /* Esto hará que las imágenes cubran todo el área del slide sin deformarse */
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%; /* Centra el contenido verticalmente */
+    left: 50%; /* Centra el contenido horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste final para centrar perfectamente */
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* color del texto */
+    z-index: 5; /* asegurarse de que el contenido esté encima de la imagen */
+    width: 80%; /* Ancho del contenido. Ajusta según lo necesites. */
+}
+
+.slide-content__title{
+    font-size: 5.3rem;
+}
+
+.slide-content__p{
+    font-size: 1.4rem;
+    margin: 30px auto;
+}
+
+.slide-button {
+    display: inline-block;
+    padding: 25px 20px;
+    margin-top: 10px;
+    background-color: #030303; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* animación suave al hacer hover */
+}
+
+.slide-button:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* un poco más oscuro al hacer hover */
+    text-decoration: none;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+}
+
+.contenedor .contenedor-links{
+    display: flex;
+}
+
+.contenedor .contenedor-links a{
+    margin-right: 15px;
+}
+
+.contenedor.navigation a:hover{
+    text-decoration: underline;
+}
+.contenedor a{color: #fff;}
+.contenedor .navigation .contenedor-redes-carrito{
+    display: flex;
+}    
+
+.contenedor .navigation .contenedor-redes-carrito .redes{
+margin: auto 10px;
+}
+.contenedor .navigation .contenedor-redes-carrito  .carrito {
+    background-color: #fff;
+    color: #030303;
+    padding: 15px;
+    border-radius: 5px;
+}
+.contenedor .navigation .contenedor-redes-carrito .carrito .cart{
+    color: #030303;
+    font-size: 30px;
+}
+.carrito{
+    position: relative;
+}
+.carrito-indicador {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;            /* Tamaño del círculo */
+    height: 20px;
+    background-color: red;  /* Color de fondo del círculo */
+    color: white;           /* Color del texto dentro del círculo */
+    border-radius: 50%;     /* Hace que el elemento sea un círculo */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el texto dentro del círculo */
+    align-items: center;     /* Centra verticalmente el texto dentro del círculo */
+    font-size: 0.8rem;      /* Tamaño de la fuente */
+}
+
+.contenedor__img img{
+    max-width: 80px;
+    transition: .2s ease-in-out;
+}
+.contenedor .navigation .contenedor__img img:hover{
+    transform: scale(1.1);
+}
