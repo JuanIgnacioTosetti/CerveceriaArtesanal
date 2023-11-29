@@ -17,7 +17,7 @@
    
           <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../index.php">
                     <img src="../img/logo.png" alt="Logo"  height="50" class="d-inline-block align-text-center">
                     Caracol Negro | Cerveceria Artesanal
                   </a>
@@ -80,7 +80,7 @@
                   echo "<td>$" . $fila['precioProducto'] . "</td>";
                   echo "<td>
                           <button class='btn-edit'><a href='./editar.php?id=".$fila["id"]."'>Editar</a></button>
-                          <button class='btn-delete' id='eliminarBtn'>Borrar</button>
+                          <button class='btn-delete'><a href='./eliminar.php?id=".$fila["id"]."'>Borrar</a></button>
                         </td>";
                   echo "</tr>";
               }
@@ -99,28 +99,10 @@
       </table>
 
     </section>
-    <div id="confirmarEliminar" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirmar Eliminación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ¿Realmente desea eliminar el producto?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
+    
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    
 </body>
 </html>

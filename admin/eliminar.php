@@ -10,7 +10,7 @@
  }
 
  if (isset($_GET["id"])) {
-    $ID = $_GET["id"];
+   $ID = $_GET["id"];
  }
 
 
