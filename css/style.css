@@ -1,68 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&family=Rubik:wght@300;400;500;600&display=swap');
-*{
+/* Estilo para el contenedor principal */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  /* Estilo para el riel de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    background-color: #363636; /* Color del fondo del riel */
+  }
+  
+  /* Estilo para el pulgar de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background-color: #222; /* Color del pulgar */
+    border-radius: 4px; /* Bordes redondeados del pulgar */
+  }
+  
+  /* Estilo para el pulgar cuando se pasa el mouse sobre él */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color del pulgar al pasar el mouse */
+  }
+
+  
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Rubik', sans-serif;
-}
-li{list-style: none;}
-a{text-decoration: none;}
-
-.contenedor {
-    position: relative;
-    width: 100vw;
-    height: 100vh; /* Hacemos que el contenedor ocupe todo el viewport en altura */
-    overflow: hidden; /* Esto es para evitar desbordamientos indeseados */
+    overflow-x: hidden;
 }
 
-.navigation {
-    margin: 10px 0;
-    position: absolute; /* Esto hará que el nav quede por encima del swiper */
+.navbar {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10; /* Asegura que esté por encima del swiper */
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
     display: flex;
     justify-content: space-between;
 }
 
-.swiper-container {
-    width: 100vw; 
-    height: 100vh; 
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    justify-content: space-between;
+}
+}
+.navbar-toggler-icon{
+    border: 0px;
+}
+.navbar-toggler-icon i {
+    font-size: 3rem;
+}
+
+button:focus {
+    outline: 0px dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    list-style: none;
+}
+.nav-item a {
+    color:#fff
+}
+.nav-item i{
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.contenedor-redes-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-redes-carrito .redes,
+.contenedor-redes-carrito .carrito i {
+    color: #fff;
+}
+
+.contenedor__img img {
+    max-width: 80px;
+    transition: .2s ease-in-out;
+}
+
+.contenedor__img img:hover {
+    transform: scale(1.1);
+}
+
+.redes a {
+    color: #fff;
+    margin-right: 15px;
+}
+
+.carrito {
+    position: relative;
+    color: #fff;
+}
+
+.carrito .cart {
+    font-size: 30px;
+}
+
+/* Swipper */
+.swiper-container, .swiper-slide {
+    width: 100vw;
+    height: 100vh;
 }
 
 .swiper-slide {
     position: relative;
-    width: 100vw; 
-    height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .swiper-slide img {
-    width: 100vw; 
-    height: 100vh; 
-    object-fit: cover; /* Esto hará que las imágenes cubran todo el área del slide sin deformarse */
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
 }
 
 .slide-content {
     position: absolute;
-    top: 50%; /* Centra el contenido verticalmente */
-    left: 50%; /* Centra el contenido horizontalmente */
-    transform: translate(-50%, -50%); /* Ajuste final para centrar perfectamente */
-    text-align: center; /* Alinea el texto al centro */
-    color: white; /* color del texto */
-    z-index: 5; /* asegurarse de que el contenido esté encima de la imagen */
-    width: 80%; /* Ancho del contenido. Ajusta según lo necesites. */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 5;
+    width: 80%;
+    margin-top: 50px;
 }
 
-.slide-content__title{
-    font-size: 5.3rem;
+.slide-content__title {
+    font-size: 4rem;
 }
 
-.slide-content__p{
-    font-size: 1.4rem;
+.slide-content__p {
+    font-size: 1rem;
     margin: 30px auto;
 }
 
@@ -70,77 +171,62 @@ a{text-decoration: none;}
     display: inline-block;
     padding: 25px 20px;
     margin-top: 10px;
-    background-color: #030303; 
-    color: white;
+    background-color: #030303;
     border: none;
     border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s; /* animación suave al hacer hover */
+    transition: background-color 0.3s;
 }
 
 .slide-button:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* un poco más oscuro al hacer hover */
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.contenedor-links {
+    display: flex;
+}
+/* Inicio Tienda */
+.tienda{
+    margin: 30px auto;
+}
+.tienda__title{
+    text-align: center;
+}
+
+.pag__tienda{
+    padding-top: 15vh;
+}
+.productos{
+    display: flex;
+    justify-content: space-around;
+    margin:  20px auto;
+    flex-wrap: wrap;
+}
+.card{
+    margin: 10px auto;
+}
+.btn__tienda{
+    margin: auto 20px;
+    color: #030303;
+    border: 2px #030303 solid;
+    border-radius: 15px;
+    padding: 5px;
+    transition: .2s ;
+    cursor: pointer;
+}
+
+.btn__tienda:hover{
+    background-color: #030303;
+    color: white;
     text-decoration: none;
 }
 
-.navigation{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.btn__tienda:active{
+    background-color: #222;
     color: #fff;
 }
-
-.contenedor .contenedor-links{
+.filtros{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.contenedor .contenedor-links a{
-    margin-right: 15px;
-}
-
-.contenedor.navigation a:hover{
-    text-decoration: underline;
-}
-.contenedor a{color: #fff;}
-.contenedor .navigation .contenedor-redes-carrito{
-    display: flex;
-}    
-
-.contenedor .navigation .contenedor-redes-carrito .redes{
-margin: auto 10px;
-}
-.contenedor .navigation .contenedor-redes-carrito  .carrito {
-    background-color: #fff;
-    color: #030303;
-    padding: 15px;
-    border-radius: 5px;
-}
-.contenedor .navigation .contenedor-redes-carrito .carrito .cart{
-    color: #030303;
-    font-size: 30px;
-}
-.carrito{
-    position: relative;
-}
-.carrito-indicador {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;            /* Tamaño del círculo */
-    height: 20px;
-    background-color: red;  /* Color de fondo del círculo */
-    color: white;           /* Color del texto dentro del círculo */
-    border-radius: 50%;     /* Hace que el elemento sea un círculo */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el texto dentro del círculo */
-    align-items: center;     /* Centra verticalmente el texto dentro del círculo */
-    font-size: 0.8rem;      /* Tamaño de la fuente */
-}
-
-.contenedor__img img{
-    max-width: 80px;
-    transition: .2s ease-in-out;
-}
-.contenedor .navigation .contenedor__img img:hover{
-    transform: scale(1.1);
-}
